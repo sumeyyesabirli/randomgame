@@ -1,0 +1,10 @@
+C:\Users\sumey\source\repos\randomgame\randomgame\bin\Debug\randomgame.exe.config
+C:\Users\sumey\source\repos\randomgame\randomgame\bin\Debug\randomgame.exe
+C:\Users\sumey\source\repos\randomgame\randomgame\bin\Debug\randomgame.pdb
+C:\Users\sumey\source\repos\randomgame\randomgame\obj\Debug\randomgame.csproj.AssemblyReference.cache
+C:\Users\sumey\source\repos\randomgame\randomgame\obj\Debug\randomgame.Form1.resources
+C:\Users\sumey\source\repos\randomgame\randomgame\obj\Debug\randomgame.Properties.Resources.resources
+C:\Users\sumey\source\repos\randomgame\randomgame\obj\Debug\randomgame.csproj.GenerateResource.cache
+C:\Users\sumey\source\repos\randomgame\randomgame\obj\Debug\randomgame.csproj.CoreCompileInputs.cache
+C:\Users\sumey\source\repos\randomgame\randomgame\obj\Debug\randomgame.exe
+C:\Users\sumey\source\repos\randomgame\randomgame\obj\Debug\randomgame.pdb
