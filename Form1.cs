@@ -17,8 +17,8 @@ namespace randomgame
         int obj3;
         int ustLevel = 10;
         int altLevel = 5;
-        bool isStarted = false;
-        int score = 0;
+        bool basladiMi = false;
+        int skor = 0;
         public Form1()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace randomgame
 
         private void timer1_Tick(object sender, EventArgs e)
         { 
-            if(isStarted)
+            if(basladiMi)
             {
                 pictureBox1.Top += obj1;
                 pictureBox2.Top += obj2;
@@ -49,11 +49,11 @@ namespace randomgame
         }
         void kazandinMi()
         {
-            if(score > 5)
+            if(skor > 5)
             {
-                isStarted = false;
+                basladiMi = false;
                 button1.Visible = true;
-                score = 0;
+                skor = 0;
                 yerleriSifirla();
                 MessageBox.Show("Kazandın");
             }
@@ -67,13 +67,13 @@ namespace randomgame
         }
         void kaybettinMi()
         {
-            if (score < -4)
+            if (skor < -4)
             {
-                isStarted = false;
+                basladiMi = false;
                 button1.Visible = true;
-                score = 0;
+                skor = 0;
                 yerleriSifirla();
-                MessageBox.Show("Kaybettin");
+                MessageBox.Show("Kaybettin"); 
             }
         }
         void yereCarparsa(Random rd)
@@ -83,7 +83,7 @@ namespace randomgame
                 var x1 = rd.Next(600);
                 obj1 = rd.Next(altLevel,ustLevel);
                 pictureBox1.Location = new Point(x1, 0);
-                score++;
+                skor++;
             }
             if (Math.Abs((pictureBox2.Location.X - pictureBox4.Location.X )) < 50 && Math.Abs((pictureBox2.Location.Y - pictureBox4.Location.Y)) < 50)
             {
@@ -91,7 +91,7 @@ namespace randomgame
                 obj2 = rd.Next(altLevel,ustLevel);
 
                 pictureBox2.Location = new Point(x2, 0);
-                score++;
+                skor++;
             }
             if (Math.Abs((pictureBox3.Location.X - pictureBox4.Location.X)) < 50 && Math.Abs((pictureBox3.Location.Y - pictureBox4.Location.Y)) < 50)
             {
@@ -99,9 +99,9 @@ namespace randomgame
                 obj3 = rd.Next(altLevel,ustLevel);
 
                 pictureBox3.Location = new Point(x3, 0);
-                score++;
+                skor++;
             }
-            label1.Text ="Skor " + score.ToString();
+            label1.Text ="Skor " + skor.ToString();
         }
 
         void sepeteCarparsa(Random rd, int down)
@@ -111,7 +111,7 @@ namespace randomgame
                 var x1 = rd.Next(600);
                 obj1 = rd.Next(altLevel,ustLevel);
                 pictureBox1.Location = new Point(x1, 0);
-                score--;
+                skor--;
             }
            
             if (pictureBox2.Top > down)
@@ -120,7 +120,7 @@ namespace randomgame
                 obj2 = rd.Next(altLevel,ustLevel);
 
                 pictureBox2.Location = new Point(x2, 0);
-                score--;
+                skor--;
 
             }
             if (pictureBox3.Top > down)
@@ -129,10 +129,10 @@ namespace randomgame
                 obj3 = rd.Next(altLevel,ustLevel);
 
                 pictureBox3.Location = new Point(x3, 0);
-                score--;
+                skor--;
 
             }
-            label1.Text = "Skor " + score.ToString();
+            label1.Text = "Skor " + skor.ToString();
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -156,7 +156,7 @@ namespace randomgame
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(!isStarted)
+            if(!basladiMi)
             {
                 button1.Visible = false;
                 Random rd = new Random();
@@ -164,7 +164,7 @@ namespace randomgame
                 obj1 = rd.Next(altLevel, ustLevel);
                 obj2 = rd.Next(altLevel, ustLevel);
                 obj3 = rd.Next(altLevel, ustLevel);
-                isStarted = true;
+                basladiMi = true;
             }
         }
     }
