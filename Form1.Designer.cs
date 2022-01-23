@@ -38,6 +38,8 @@ namespace randomgame
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -113,11 +115,27 @@ namespace randomgame
             this.pictureBox4.TabIndex = 5;
             this.pictureBox4.TabStop = false;
             // 
+            // ımageList1
+            // 
+            this.ımageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.ımageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(813, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "label2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(946, 732);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -148,6 +166,8 @@ namespace randomgame
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.ImageList ımageList1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

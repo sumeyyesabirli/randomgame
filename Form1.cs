@@ -15,10 +15,11 @@ namespace randomgame
         int obj1;
         int obj2;
         int obj3;
-        int ustLevel = 10;
+        int ustLevel = 15;
         int altLevel = 5;
         bool basladiMi = false;
         int skor = 0;
+        int can =0;
         public Form1()
         {
             InitializeComponent();
@@ -44,6 +45,7 @@ namespace randomgame
 
                 sepeteCarparsa(rd, 600);
                 yereCarparsa(rd);
+
             }
 
         }
@@ -61,25 +63,36 @@ namespace randomgame
 
         void yerleriSifirla()
         {
+            //objelerin X ve Y kordinatlarını ayarlar 
             pictureBox1.Location = new Point(100, 0);
             pictureBox2.Location = new Point(300, 0);
             pictureBox3.Location = new Point(500, 0);
         }
         void kaybettinMi()
         {
-            if (skor < -4)
+            if (skor < 0)
             {
-                basladiMi = false;
-                button1.Visible = true;
                 skor = 0;
-                yerleriSifirla();
-                MessageBox.Show("Kaybettin"); 
+                can--;
+                label2.Text = "Can " + can.ToString();
+                label2.Text = "Can " + can.ToString();
+
+                if (can == 0)
+                {
+                    basladiMi = false;
+                    button1.Visible = true;
+                    skor = 0;
+                    yerleriSifirla();
+                    MessageBox.Show("Kaybettin");
+                }
             }
-        }
+        }   
         void yereCarparsa(Random rd)
         {
-            if (Math.Abs((pictureBox1.Location.X - pictureBox4.Location.X)) < 50 && Math.Abs((pictureBox1.Location.Y - pictureBox4.Location.Y)) < 50)
+            //math.abs: Bir sayının sayı doğrusundaki yerinin başlangıç noktasına (sıfıra) olan uzaklığına o sayının mutlak değeri 
+            if (Math.Abs((pictureBox1.Location.X - pictureBox4.Location.X)) <50 && Math.Abs((pictureBox1.Location.Y - pictureBox4.Location.Y)) < 50)
             {
+                //x1 random bir sayı oluşturu ve point X ve Y kordinatlarını belirler
                 var x1 = rd.Next(600);
                 obj1 = rd.Next(altLevel,ustLevel);
                 pictureBox1.Location = new Point(x1, 0);
@@ -108,7 +121,7 @@ namespace randomgame
         {
             if (pictureBox1.Top > down)
             {
-                var x1 = rd.Next(600);
+                var x1 = rd.Next(50);
                 obj1 = rd.Next(altLevel,ustLevel);
                 pictureBox1.Location = new Point(x1, 0);
                 skor--;
@@ -140,24 +153,21 @@ namespace randomgame
 
             if (keyData == Keys.D)
             {
-                pictureBox4.Left += 10;
+                pictureBox4.Left += 50;
             }
             else if (keyData == Keys.A)
             {
-                pictureBox4.Left -= 10;
+                pictureBox4.Left -= 50;
             }
             return base.ProcessCmdKey(ref msg, keyData);
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+        }        
 
         private void button1_Click(object sender, EventArgs e)
         {
             if(!basladiMi)
             {
+                can = 3;
+                label2.Text = "Can " + can.ToString();
                 button1.Visible = false;
                 Random rd = new Random();
                 timer1.Start();
@@ -166,6 +176,10 @@ namespace randomgame
                 obj3 = rd.Next(altLevel, ustLevel);
                 basladiMi = true;
             }
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
